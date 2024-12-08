@@ -1,0 +1,15 @@
+{
+  "name": "typescript-ddd-e-commerce-api-rest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Esteban Morales",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  }
+}
