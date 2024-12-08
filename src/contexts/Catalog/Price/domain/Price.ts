@@ -4,13 +4,12 @@ import { PriceId } from "./PriceId";
 import { PriceInitialDate } from "./PriceInitialDate";
 import { PriceValue } from "./PriceValue";
 
-
 export class Price {
     constructor(
-        id: PriceId,
-        value: PriceValue,
-        currency: PriceCurrency,
-        inicialDate: PriceInitialDate,
-        finalDate: PriceFinalDate
+        public readonly id: PriceId,
+        public readonly value: PriceValue,
+        public readonly currency: PriceCurrency,
+        public readonly inicialDate: PriceInitialDate,
+        public readonly finalDate: PriceFinalDate
     ) { }
 }
