@@ -1,0 +1,21 @@
+export enum Currencies {
+    USD = "Dollar",
+    EUR = "Euro",
+    ARS = "Argentine Peso",
+    BOB = "Bolivian Boliviano",
+    BRL = "Brazilian Real",
+    CLP = "Chilean Peso",
+    COP = "Colombian Peso",
+    CRC = "Costa Rican Colón",
+    CUP = "Cuban Peso",
+    DOP = "Dominican Peso",
+    GTQ = "Guatemalan Quetzal",
+    HNL = "Honduran Lempira",
+    MXN = "Mexican Peso",
+    NIO = "Nicaraguan Córdoba",
+    PAB = "Panamanian Balboa",
+    PEN = "Peruvian Sol",
+    PYG = "Paraguayan Guaraní",
+    UYU = "Uruguayan Peso",
+    VES = "Venezuelan Bolívar"
+}

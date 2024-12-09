@@ -1,12 +1,21 @@
-import { StringValueObject } from "../../../Shared/domain/value-objects/StringValueObject";
-import { DomainException } from "../../../Shared/exceptions/DomainException";
+import { InvalidArgumentError } from "../../../Shared/domain/exceptions/InvalidArgumentError";
+import { Currencies } from "../../../Shared/domain/value-objects/Currency";
+import { EnumValueObject } from "../../../Shared/domain/value-objects/EnumValueObject";
 
-export class PriceCurrency extends StringValueObject {
-    constructor(value: string) {
-        super(value);
-        this.ensureValidValue(value);
+export class PriceCurrency extends EnumValueObject<Currencies> {
+    constructor(value: Currencies) {
+        super(value, Object.values(Currencies));
     }
-    private ensureValidValue(value: string) {
-        if (value.length !== 3) throw new DomainException(`The currency format <${value}> is not valid`);
+    static fromValue(value: string): PriceCurrency {
+        for (const priceCurrency of Object.values(Currencies)) {
+            if (value === Currencies.toString()) {
+                return new PriceCurrency(priceCurrency);
+            }
+        }
+        throw new InvalidArgumentError(`The order type ${value} is invalid`);
+    }
+
+    protected throwErrorForInvalidValue(value: Currencies): void {
+        throw new InvalidArgumentError(`The value <${value}> is not valid`)
     }
 }
