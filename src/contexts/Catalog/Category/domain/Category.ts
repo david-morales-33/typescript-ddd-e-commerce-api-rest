@@ -5,9 +5,9 @@ import { CategoryValue } from "./CategoryValue";
 
 export class Category {
     constructor(
-        private readonly id: CategoryId,
-        private readonly value: CategoryValue,
-        private readonly level: CategoryLevel,
-        private readonly description: CategoryDescription 
+        public readonly id: CategoryId,
+        public readonly value: CategoryValue,
+        public readonly level: CategoryLevel,
+        public readonly description: CategoryDescription 
     ){}
 }
