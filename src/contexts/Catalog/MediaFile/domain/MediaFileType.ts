@@ -1,5 +1,5 @@
-import { InvalidArgumentError } from "../../Shared/domain/exceptions/InvalidArgumentError";
-import { EnumValueObject } from "../../Shared/domain/value-objects/EnumValueObject";
+import { InvalidArgumentError } from "../../../Shared/domain/exceptions/InvalidArgumentError";
+import { EnumValueObject } from "../../../Shared/domain/value-objects/EnumValueObject";
 
 export enum FileType {
     IMAGE = "Image",
