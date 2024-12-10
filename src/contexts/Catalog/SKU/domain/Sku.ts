@@ -1,6 +1,8 @@
+import { AvailabilityRegion } from "../../AvailabilityRegion/domain/AvailabilityRegion";
+import { Price } from "../../Price/domain/Price";
+import { PromotionalSettings } from "../../PromotionalSettings/domain/PromotionalSettings";
 import { SkuAttribute } from "./SkuAttribute";
 import { SkuId } from "./SkuId";
-import { SkuPriceBase } from "./SkuPriceBase";
 import { SkuState } from "./SkuState";
 import { SkuValue } from "./SkuValue";
 
@@ -8,8 +10,10 @@ export class Sku {
     constructor(
         public readonly id: SkuId,
         public readonly value: SkuValue,
+        public readonly priceBase: Price,
+        public readonly promotionalSettings: PromotionalSettings,
+        public readonly availableRegion:AvailabilityRegion,
         public readonly atributesList: SkuAttribute[],
         public readonly state: SkuState,
-        public readonly priceBase: SkuPriceBase
     ) { }
 }
