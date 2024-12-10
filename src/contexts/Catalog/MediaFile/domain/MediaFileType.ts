@@ -11,9 +11,9 @@ export class MediaFileType extends EnumValueObject<FileType> {
         super(value, Object.values(FileType));
     }
     static fromValue(value: string): MediaFileType {
-        for (const categoryLevel of Object.values(MediaFileType)) {
-            if (value === MediaFileType.toString()) {
-                return new MediaFileType(categoryLevel);
+        for (const type of Object.values(MediaFileType)) {
+            if (value === type.toString()) {
+                return new MediaFileType(type);
             }
         }
         throw new InvalidArgumentError(`The order type ${value} is invalid`);

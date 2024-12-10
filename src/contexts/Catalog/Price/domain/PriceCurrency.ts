@@ -8,7 +8,7 @@ export class PriceCurrency extends EnumValueObject<Currencies> {
     }
     static fromValue(value: string): PriceCurrency {
         for (const priceCurrency of Object.values(Currencies)) {
-            if (value === Currencies.toString()) {
+            if (value === priceCurrency.toString()) {
                 return new PriceCurrency(priceCurrency);
             }
         }

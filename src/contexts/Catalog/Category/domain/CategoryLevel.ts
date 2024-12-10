@@ -11,9 +11,9 @@ export class CategoryLevel extends EnumValueObject<Level> {
         super(value, Object.values(Level))
     }
     static fromValue(value: string): CategoryLevel {
-        for (const categoryLevel of Object.values(Level)) {
-            if (value === Level.toString()) {
-                return new CategoryLevel(categoryLevel);
+        for (const level of Object.values(Level)) {
+            if (value === level.toString()) {
+                return new CategoryLevel(level);
             }
         }
         throw new InvalidArgumentError(`The order type ${value} is invalid`);

@@ -12,9 +12,9 @@ export class AvailabilityRegionStock extends EnumValueObject<Stock> {
     }
 
     static fromValue(value: string): AvailabilityRegionStock {
-        for (const orderTypeValue of Object.values(Stock)) {
-            if (value === orderTypeValue.toString()) {
-                return new AvailabilityRegionStock(orderTypeValue);
+        for (const type of Object.values(Stock)) {
+            if (value === type.toString()) {
+                return new AvailabilityRegionStock(type);
             }
         }
         throw new InvalidArgumentError(`The order type ${value} is invalid`);

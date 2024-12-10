@@ -12,9 +12,9 @@ export class SkuState extends EnumValueObject<SkuStock> {
     }
 
     static fromValue(value: string): SkuState {
-        for (const orderTypeValue of Object.values(SkuStock)) {
-            if (value === orderTypeValue.toString()) {
-                return new SkuState(orderTypeValue);
+        for (const stock of Object.values(SkuStock)) {
+            if (value === stock.toString()) {
+                return new SkuState(stock);
             }
         }
         throw new InvalidArgumentError(`The order type ${value} is invalid`);
