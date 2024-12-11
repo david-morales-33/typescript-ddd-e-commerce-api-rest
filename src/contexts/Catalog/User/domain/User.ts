@@ -3,7 +3,6 @@ import { UserId } from "./UserId";
 import { UserName } from "./UserName";
 import { UserRole } from "./UserRole";
 
-
 export class User {
     constructor(
         public readonly id: UserId,
