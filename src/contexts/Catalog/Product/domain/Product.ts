@@ -4,6 +4,7 @@ import { Complement } from "../../Complement/domain/Complement";
 import { Label } from "../../Label/domain/Label";
 import { MediaFile } from "../../MediaFile/domain/MediaFile";
 import { Sku } from "../../SKU/domain/Sku";
+import { Specification } from "../../Specification/domain/Specification";
 import { ProductCreationDate } from "./ProductCreationDate";
 import { ProductDescription } from "./ProductDescription";
 import { ProductId } from "./ProductId";
@@ -18,14 +19,15 @@ export class Product extends AggregateRoot {
         public readonly description: ProductDescription,
         public readonly creationDate: ProductCreationDate,
         public readonly sku: Sku,
+        public readonly specification: Specification[],
         public readonly category: Category[],
         public readonly label: Label[],
         public readonly mediaFile: MediaFile[],
         public readonly complements: Complement[]
 
-    ){ super()}
+    ) { super() }
 
     toPrimitives() {
-        
+
     }
 }

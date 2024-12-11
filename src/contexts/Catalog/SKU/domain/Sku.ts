@@ -13,12 +13,12 @@ export class Sku extends AggregateRoot {
         public readonly value: SkuValue,
         public readonly priceBase: Price,
         public readonly promotionalSettings: PromotionalSettings,
-        public readonly availableRegion:AvailabilityRegion,
+        public readonly availableRegion: AvailabilityRegion,
         public readonly atributesList: SkuAttribute[],
         public readonly state: SkuState,
-    ) { super()}
+    ) { super() }
 
     toPrimitives() {
-        
+
     }
 }
