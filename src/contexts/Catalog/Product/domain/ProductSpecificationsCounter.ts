@@ -4,7 +4,7 @@ export class ProductSpecificationsCounter extends NumberValueObject {
     constructor(value: number) {
         super(value);
     }
-    public increment(): ProductSpecificationsCounter {
-        return new ProductSpecificationsCounter(this.value + 1);
+    public static increment(value: number): ProductSpecificationsCounter {
+        return new ProductSpecificationsCounter(value + 1);
     }
 }

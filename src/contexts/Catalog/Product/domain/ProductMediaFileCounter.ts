@@ -4,7 +4,7 @@ export class ProductMediaFileCounter extends NumberValueObject {
     constructor(value: number) {
         super(value)
     }
-    public increment(): ProductMediaFileCounter {
-        return new ProductMediaFileCounter(this.value + 1);
+    public static increment(value: number): ProductMediaFileCounter {
+        return new ProductMediaFileCounter(value + 1);
     }
 }

@@ -131,6 +131,58 @@ export class Product extends AggregateRoot {
         return this;
     }
 
+    public addSku(data: Sku[]) {
+        data.forEach((entry) => {
+            this._sku.push(entry);
+            this.incrementSkuCounter();
+        })
+    }
+
+    public addSpecifications(data: Specification[]) {
+        data.forEach((element) => {
+            this._specification.push(element);
+            this.incrementSpecificationCounter();
+        })
+    }
+
+    public addMediaFile(data: MediaFile[]) {
+        data.forEach((entry) => {
+            this._mediaFile.push(entry);
+            this.incrementMediaFileCounter();
+        })
+    }
+
+    public addLabel(data: Label[]) {
+        data.forEach((entry) => {
+            this._label.push(entry);
+            this.incrementLabelCounter();
+        })
+    }
+
+    public addCategory(data: Category[]) {
+        data.forEach((entry) => { this._category.push(entry) })
+    }
+
+    public addComplements(data: Complement[]) {
+        data.forEach((entry) => { this._complements.push(entry) })
+    }
+
+    private incrementSkuCounter(): ProductSkuCounter {
+        return ProductSkuCounter.increment(this._skuCounter.value);
+    }
+
+    private incrementSpecificationCounter(): ProductSpecificationsCounter {
+        return ProductSpecificationsCounter.increment(this._specificatinsCounter.value);
+    }
+
+    private incrementMediaFileCounter(): ProductMediaFileCounter {
+        return ProductMediaFileCounter.increment(this._mediaFileCounter.value);
+    }
+
+    private incrementLabelCounter(): ProductLabelCounter {
+        return ProductLabelCounter.increment(this._labelCounter.value);
+    }
+
     toPrimitives() {
 
     }
