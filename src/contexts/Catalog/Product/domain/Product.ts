@@ -37,13 +37,22 @@ export class Product extends AggregateRoot {
         public readonly state: ProductState,
         public readonly description: ProductDescription,
         public readonly creationEvent: CreationEvent
-
     ) {
         super();
         this._specificatinsCounter = new ProductSpecificationsCounter(this._specification.length);
         this._mediaFileCounter = new ProductMediaFileCounter(this._mediaFile.length);
         this._labelCounter = new ProductLabelCounter(this._label.length);
         this._skuCounter = new ProductSkuCounter(this._sku.length);
+    }
+
+    public static create(
+        id: ProductId,
+        name: ProductName,
+        state: ProductState,
+        description: ProductDescription,
+        creationEvent: CreationEvent
+    ): Product {
+        return new Product(id, name, state, description, creationEvent);
     }
 
     public get modificationEvent(): ModificationEvent | null {
