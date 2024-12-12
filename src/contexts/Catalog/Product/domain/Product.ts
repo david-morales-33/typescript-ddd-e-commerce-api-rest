@@ -23,7 +23,7 @@ export class Product extends AggregateRoot {
     private _mediaFileCounter: ProductMediaFileCounter;
     private _labelCounter: ProductLabelCounter;
     private _skuCounter: ProductSkuCounter;
-    
+
     private _specification: Specification[] = [];
     private _complements: Complement[] = [];
     private _mediaFile: MediaFile[] = [];
