@@ -15,7 +15,7 @@ export class Label {
         )
     }
 
-    public toString(): LabelDTO {
+    public toPrimitives(): LabelDTO {
         return new LabelDTO(
             this.id.value,
             this.value.value
