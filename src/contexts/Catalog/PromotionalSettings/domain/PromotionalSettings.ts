@@ -1,3 +1,4 @@
+import { PromotionalSettingsDTO } from "./PromotionalSettingsDTO";
 import { PromotionalSettingsFinalDate } from "./PromotionalSettingsFinalDate";
 import { PromotionalSettingsId } from "./PromotionalSettingsId";
 import { PromotionalSettingsInitialDate } from "./PromotionalSettingsInitialDate";
@@ -13,4 +14,23 @@ export class PromotionalSettings {
         public readonly finalDate: PromotionalSettingsFinalDate
     ) { }
 
+    public static fromPrimitives(data: PromotionalSettingsDTO): PromotionalSettings {
+        return new PromotionalSettings(
+            new PromotionalSettingsId(data.id),
+            new PromotionalSettingsType(data.type),
+            new PromotionalSettingsPercentage(data.percentage),
+            new PromotionalSettingsInitialDate(data.initialDate),
+            new PromotionalSettingsFinalDate(data.finalDate)
+        )
+    }
+
+    public toPrimitives(): PromotionalSettingsDTO {
+        return new PromotionalSettingsDTO(
+            this.id.value,
+            this.type.value,
+            this.percentage.value,
+            this.initialDate.value,
+            this.finalDate.value
+        )
+    }
 }
