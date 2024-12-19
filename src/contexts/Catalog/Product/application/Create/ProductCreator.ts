@@ -10,7 +10,7 @@ import { ProductId } from "../../domain/ProductId";
 import { ProductName } from "../../domain/ProductName";
 import { ProductState } from "../../domain/ProductState";
 
-export class CreatorProduct {
+export class ProductCreator {
     constructor(private commandRepository: ProductCommandRepository) { }
 
     async execute(id: ProductId, name: ProductName, description: ProductDescription, createBy: UserId) {
