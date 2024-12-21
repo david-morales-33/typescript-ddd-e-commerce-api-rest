@@ -12,8 +12,8 @@ export class AddLabelCommandHandler implements CommandHandler<AddLabelCommand> {
         return AddLabelCommand;
     }
     async handle(command: AddLabelCommand): Promise<void> {
-        const productId = new ProductId(command.productId.value);
-        const labelList = command.labelList.map(entry => Label.fromPrimitives(entry.toPrimitives()));
+        const productId = new ProductId(command.productId);
+        const labelList = command.labelList.map(entry => Label.fromPrimitives(entry));
         await this.creator.execute(productId, labelList);
     }
 }
