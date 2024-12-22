@@ -1,3 +1,3 @@
 import { StringValueObject } from "../../../Shared/domain/value-objects/StringValueObject";
 
-export class ModificationEventNewValue extends StringValueObject { }
+export class UpdateEventField extends StringValueObject {}

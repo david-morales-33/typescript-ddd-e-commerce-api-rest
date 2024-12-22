@@ -1,5 +1,4 @@
 import { ProductSpecificationsCounter } from "./ProductSpecificationsCounter";
-import { ModificationEvent } from "../../ModificationEvent/domain/ModificationEvent";
 import { AggregateRoot } from "../../../Shared/domain/aggregate/AggregateRoot";
 import { Specification } from "../../Specification/domain/Specification";
 import { CreationEvent } from "../../CreationEvent/domain/CreationEvent";
