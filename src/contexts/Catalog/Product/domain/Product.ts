@@ -16,6 +16,7 @@ import { ProductState } from "./ProductState";
 import { ProductSkuCounter } from "./ProductSkuCounter";
 import { CreationEventDTO } from "../../CreationEvent/domain/CreationEventDTO";
 import { ProductDTO } from "./ProductDTO";
+import { UpdateEvent } from "../../UpdateEvent/domain/UpdateEvent";
 
 export class Product extends AggregateRoot {
 
@@ -24,7 +25,7 @@ export class Product extends AggregateRoot {
     private _labelCounter: ProductLabelCounter;
     private _skuCounter: ProductSkuCounter;
 
-    private _modificationEventList: ModificationEvent[] = [];
+    private _updateEventList: UpdateEvent[] = [];
     private _specificationList: Specification[] = [];
     private _complementList: Complement[] = [];
     private _mediaFileList: MediaFile[] = [];
@@ -72,8 +73,8 @@ export class Product extends AggregateRoot {
         )
     }
 
-    public get modificationEventList(): ModificationEvent[] {
-        return this._modificationEventList;
+    public get modificationEventList(): UpdateEvent[] {
+        return this._updateEventList;
     }
 
     public get mediaFileCounter(): ProductMediaFileCounter {
@@ -211,7 +212,7 @@ export class Product extends AggregateRoot {
             this.mediaFileCounter.value,
             this.labelCounter.value,
             this.skuCounter.value,
-            this._modificationEventList.map(entry => entry),
+            this._updateEventList.map(entry => entry),
             this._specificationList.map(entry => entry.toPrimitives()),
             this._complementList.map(entry => entry.toPrimitives()),
             this._mediaFileList.map(entry => entry.toPrimitives()),
