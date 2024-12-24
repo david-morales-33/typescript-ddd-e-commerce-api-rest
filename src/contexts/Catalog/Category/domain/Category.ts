@@ -1,3 +1,4 @@
+import { CreationEvent } from "../../CreationEvent/domain/CreationEvent";
 import { CategoryDescription } from "./CategoryDescription";
 import { CategoryDTO } from "./CategoryDTO";
 import { CategoryId } from "./CategoryId";
@@ -9,7 +10,8 @@ export class Category {
         public readonly id: CategoryId,
         public readonly value: CategoryValue,
         public readonly level: CategoryLevel,
-        public readonly description: CategoryDescription
+        public readonly description: CategoryDescription,
+        public readonly creationEvent: CreationEvent
     ) { }
 
     public static fromPrimitives(data: CategoryDTO): Category {
@@ -17,7 +19,8 @@ export class Category {
             new CategoryId(data.id),
             new CategoryValue(data.value),
             CategoryLevel.fromValue(data.level),
-            new CategoryDescription(data.description)
+            new CategoryDescription(data.description),
+            CreationEvent.fromPrimitives(data.creationEvent)
         )
     }
 
@@ -26,7 +29,8 @@ export class Category {
             this.id.value,
             this.value.value,
             this.level.value,
-            this.description.value
+            this.description.value,
+            this.creationEvent.toPrimitives()
         );
     }
 }
