@@ -152,28 +152,28 @@ export class Product extends AggregateRoot {
     public addSku(data: Sku[]) {
         data.forEach((entry) => {
             this._skuList.push(entry);
-            this.incrementSkuCounter();
+            this._skuCounter = this.incrementSkuCounter();
         })
     }
 
     public addSpecifications(data: Specification[]) {
         data.forEach((element) => {
             this._specificationList.push(element);
-            this.incrementSpecificationCounter();
+            this._specificatinsCounter = this.incrementSpecificationCounter();
         })
     }
 
     public addMediaFile(data: MediaFile[]) {
         data.forEach((entry) => {
             this._mediaFileList.push(entry);
-            this.incrementMediaFileCounter();
+            this._mediaFileCounter = this.incrementMediaFileCounter();
         })
     }
 
     public addLabel(data: Label[]) {
         data.forEach((entry) => {
             this._labelList.push(entry);
-            this.incrementLabelCounter();
+            this._labelCounter = this.incrementLabelCounter();
         })
     }
 
