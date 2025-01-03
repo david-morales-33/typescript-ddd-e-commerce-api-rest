@@ -9,12 +9,16 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/mssql": "^9.1.6",
     "@types/uuid-validate": "^0.0.3",
     "tslint": "^5.12.1",
     "typescript": "^3.3.3"
   },
   "dependencies": {
     "express": "^4.21.2",
+    "mssql": "^10.0.4",
+    "ts-node": "^10.9.2",
+    "typeorm": "^0.3.20",
     "uuid": "^11.0.3",
     "uuid-validate": "^0.0.3"
   }
