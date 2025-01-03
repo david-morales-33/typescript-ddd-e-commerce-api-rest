@@ -1,4 +1,3 @@
-import { InvalidArgumentError } from '../value-object/InvalidArgumentError';
 import { FilterField } from './FilterField';
 import { FilterOperator } from './FilterOperator';
 import { FilterValue } from './FilterValue';
@@ -20,7 +19,7 @@ export class Filter {
     const value = values.get('value');
 
     if (!field || !operator || !value) {
-      throw new InvalidArgumentError(`The filter is invalid`);
+      throw new Error(`The filter is invalid`);
     }
 
     return new Filter(new FilterField(field), FilterOperator.fromValue(operator), new FilterValue(value));
