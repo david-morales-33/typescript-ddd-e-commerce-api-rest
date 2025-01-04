@@ -1,7 +1,7 @@
-import { AvailabilityRegionDTO } from "../../AvailabilityRegion/domain/AvailabilityRegionDTO";
 import { PriceDTO } from "../../Price/domain/PriceDTO";
 import { PromotionalSettingsDTO } from "../../PromotionalSettings/domain/PromotionalSettingsDTO";
 import { SkuAttributeDTO } from "../../SKUAttribute/domain/SkuAttributeDTO";
+import { StockDTO } from "../../Stock/domain/StockDTO";
 
 export class SkuDTO {
     constructor(
@@ -9,7 +9,7 @@ export class SkuDTO {
         public readonly value: string,
         public readonly priceBase: PriceDTO,
         public readonly promotionalSettings: PromotionalSettingsDTO,
-        public readonly availableRegion: AvailabilityRegionDTO,
+        public readonly stock: StockDTO,
         public readonly atributesList: SkuAttributeDTO[],
         public readonly productId: string,
         public readonly state: string,

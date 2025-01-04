@@ -2,8 +2,8 @@ import { AvailabilityRegionDTO } from "../../AvailabilityRegion/domain/Availabil
 
 export class StockDTO {
     constructor(
+        public readonly id: string,
         public readonly state: string,
-        public readonly skuId: string,
-        public readonly availabilityRegion: AvailabilityRegionDTO
+        public readonly availabilityRegionList: AvailabilityRegionDTO[]
     ) { }
 }
