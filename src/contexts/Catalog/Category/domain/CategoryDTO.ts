@@ -6,6 +6,7 @@ export class CategoryDTO {
         public readonly value: string,
         public readonly level: string,
         public readonly description: string,
-        public readonly creationEvent: CreationEventDTO
+        public readonly createBy: string,
+        public readonly createAt: Date
     ) { }
 }
