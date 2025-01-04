@@ -1,3 +1,4 @@
+import { SkuId } from "../../SKU/domain/SkuId";
 import { PromotionalSettingsDTO } from "./PromotionalSettingsDTO";
 import { PromotionalSettingsFinalDate } from "./PromotionalSettingsFinalDate";
 import { PromotionalSettingsId } from "./PromotionalSettingsId";
@@ -11,7 +12,8 @@ export class PromotionalSettings {
         public readonly type: PromotionalSettingsType,
         public readonly percentage: PromotionalSettingsPercentage,
         public readonly initialDate: PromotionalSettingsInitialDate,
-        public readonly finalDate: PromotionalSettingsFinalDate
+        public readonly finalDate: PromotionalSettingsFinalDate,
+        public readonly skuId: SkuId
     ) { }
 
     public static fromPrimitives(data: PromotionalSettingsDTO): PromotionalSettings {
@@ -20,7 +22,8 @@ export class PromotionalSettings {
             new PromotionalSettingsType(data.type),
             new PromotionalSettingsPercentage(data.percentage),
             new PromotionalSettingsInitialDate(data.initialDate),
-            new PromotionalSettingsFinalDate(data.finalDate)
+            new PromotionalSettingsFinalDate(data.finalDate),
+            new SkuId(data.skuId)
         )
     }
 
@@ -30,7 +33,8 @@ export class PromotionalSettings {
             this.type.value,
             this.percentage.value,
             this.initialDate.value,
-            this.finalDate.value
+            this.finalDate.value,
+            this.skuId.value
         )
     }
 }
