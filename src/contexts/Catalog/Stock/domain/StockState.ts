@@ -6,15 +6,15 @@ export enum Stock {
     UNAVAILABLE = "Unavailable"
 }
 
-export class AvailabilityRegionStock extends EnumValueObject<Stock> {
+export class StockState extends EnumValueObject<Stock> {
     constructor(value: Stock) {
         super(value, Object.values(Stock))
     }
 
-    static fromValue(value: string): AvailabilityRegionStock {
+    static fromValue(value: string): StockState {
         for (const type of Object.values(Stock)) {
             if (value === type.toString()) {
-                return new AvailabilityRegionStock(type);
+                return new StockState(type);
             }
         }
         throw new InvalidArgumentError(`The order type ${value} is invalid`);

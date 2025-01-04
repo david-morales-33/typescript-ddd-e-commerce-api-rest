@@ -4,7 +4,6 @@ import { Price } from "../../Price/domain/Price";
 import { ProductId } from "../../Product/domain/ProductId";
 import { PromotionalSettings } from "../../PromotionalSettings/domain/PromotionalSettings";
 import { SkuAttribute } from "../../SKUAttribute/domain/SkuAttribute";
-import { SkuAttributeDTO } from "../../SKUAttribute/domain/SkuAttributeDTO";
 import { SkuDTO } from "./SkuDTO";
 import { SkuId } from "./SkuId";
 import { SkuState } from "./SkuState";
