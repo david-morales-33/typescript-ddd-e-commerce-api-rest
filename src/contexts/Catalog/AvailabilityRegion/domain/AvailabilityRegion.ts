@@ -1,5 +1,6 @@
 import { AggregateRoot } from "../../../Shared/domain/aggregate/AggregateRoot";
-import { CreationEvent } from "../../CreationEvent/domain/CreationEvent";
+import { UserId } from "../../User/domain/UserId";
+import { AvailabilityRegionCreationDate } from "./AvailabilityRegionCreationDate";
 import { AvailabilityRegionDTO } from "./AvailabilityRegionDTO";
 import { AvailabilityRegionId } from "./AvailabilityRegionId";
 import { AvailabilityRegionStock } from "./AvailabilityRegionStock";
@@ -9,16 +10,25 @@ export class AvailabilityRegion extends AggregateRoot {
     constructor(
         public readonly id: AvailabilityRegionId,
         public readonly region: AvailabilityRegionValue,
-        public readonly stock: AvailabilityRegionStock,
-        public readonly creationEvent: CreationEvent
+        public readonly createBy: UserId,
+        public readonly createAt: AvailabilityRegionCreationDate
     ) { super() }
+
+    public static create(
+        id: AvailabilityRegionId,
+        region: AvailabilityRegionValue,
+        createBy: UserId,
+        createAt: AvailabilityRegionCreationDate
+    ): AvailabilityRegion {
+        return new AvailabilityRegion(id, region, createBy, createAt);
+    }
 
     public static fromPrimitives(data: AvailabilityRegionDTO): AvailabilityRegion {
         return new AvailabilityRegion(
             new AvailabilityRegionId(data.id),
             new AvailabilityRegionValue(data.region),
-            AvailabilityRegionStock.fromValue(data.stock),
-            CreationEvent.fromPrimitives(data.creationEvent)
+            new UserId(data.createBy),
+            new AvailabilityRegionCreationDate(data.createAt)
         );
     }
 
@@ -26,8 +36,8 @@ export class AvailabilityRegion extends AggregateRoot {
         return new AvailabilityRegionDTO(
             this.id.value,
             this.region.value,
-            this.stock.value,
-            this.creationEvent.toPrimitives()
+            this.createBy.value,
+            this.createAt.value
         )
     }
 }
