@@ -1,3 +1,4 @@
+import { SkuId } from "../../SKU/domain/SkuId";
 import { PriceCurrency } from "./PriceCurrency";
 import { PriceDTO } from "./PriceDTO";
 import { PriceFinalDate } from "./PriceFinalDate";
@@ -11,7 +12,8 @@ export class Price {
         public readonly value: PriceValue,
         public readonly currency: PriceCurrency,
         public readonly initialDate: PriceInitialDate,
-        public readonly finalDate: PriceFinalDate
+        public readonly finalDate: PriceFinalDate,
+        public readonly skuId: SkuId,
     ) { }
 
     public static fromPrimitives(data: PriceDTO): Price {
@@ -20,7 +22,8 @@ export class Price {
             new PriceValue(data.value),
             PriceCurrency.fromValue(data.currency),
             new PriceInitialDate(data.initialDate),
-            new PriceFinalDate(data.finalDate)
+            new PriceFinalDate(data.finalDate),
+            new SkuId(data.skuId)
         )
     }
 
@@ -30,7 +33,8 @@ export class Price {
             this.value.value,
             this.currency.value,
             this.initialDate.value,
-            this.finalDate.value
+            this.finalDate.value,
+            this.skuId.value
         )
     }
 }

@@ -5,6 +5,7 @@ export class PriceDTO {
         public readonly value: number,
         public readonly currency: string,
         public readonly initialDate: Date,
-        public readonly finalDate: Date
+        public readonly finalDate: Date,
+        public readonly skuId: string
     ) { }
 }
