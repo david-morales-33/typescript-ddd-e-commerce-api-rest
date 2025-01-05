@@ -9,7 +9,7 @@ export class SkuDTO {
         public readonly value: string,
         public readonly priceBase: PriceDTO,
         public readonly promotionalSettings: PromotionalSettingsDTO,
-        public readonly stock: StockDTO,
+        public readonly stockList: StockDTO[],
         public readonly atributesList: SkuAttributeDTO[],
         public readonly productId: string,
         public readonly state: string,

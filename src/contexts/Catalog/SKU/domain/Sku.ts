@@ -16,7 +16,7 @@ export class Sku extends AggregateRoot {
         public readonly value: SkuValue,
         public readonly priceBase: Price,
         public readonly promotionalSettings: PromotionalSettings,
-        public readonly stock: Stock,
+        public readonly stockList: Stock[],
         public readonly atributesList: SkuAttribute[],
         public readonly productId: ProductId,
         public readonly state: SkuState,
@@ -28,7 +28,7 @@ export class Sku extends AggregateRoot {
             new SkuValue(data.value),
             Price.fromPrimitives(data.priceBase),
             PromotionalSettings.fromPrimitives(data.promotionalSettings),
-            Stock.fromPrimitives(data.stock),
+            data.stockList.map(entry => Stock.fromPrimitives(entry)),
             data.atributesList.map(entry => SkuAttribute.fromPrimitives(entry)),
             new ProductId(data.productId),
             SkuState.fromValue(data.state)
@@ -41,7 +41,7 @@ export class Sku extends AggregateRoot {
             this.value.value,
             this.priceBase.toPrimitives(),
             this.promotionalSettings.toPrimitives(),
-            this.stock.toPrimitives(),
+            this.stockList.map(entry => entry.toPrimitives()),
             this.atributesList.map(entry => entry.toPrimitives()),
             this.productId.value,
             this.state.value
