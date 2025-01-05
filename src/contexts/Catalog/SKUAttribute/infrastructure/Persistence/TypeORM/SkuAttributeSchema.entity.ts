@@ -21,7 +21,8 @@ export const SkuAttributeSchema = new EntitySchema<SkuAttributeDTO>({
             type: "many-to-one",
             target: "SkuDTO",
             joinColumn: {
-                name: 'sku_id'
+                name: 'sku_id',
+                referencedColumnName: 'id'
             }
         }
     }

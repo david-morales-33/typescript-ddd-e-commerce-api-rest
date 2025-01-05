@@ -1,5 +1,4 @@
 import { AggregateRoot } from "../../../Shared/domain/aggregate/AggregateRoot";
-import { AvailabilityRegion } from "../../AvailabilityRegion/domain/AvailabilityRegion";
 import { Price } from "../../Price/domain/Price";
 import { ProductId } from "../../Product/domain/ProductId";
 import { PromotionalSettings } from "../../PromotionalSettings/domain/PromotionalSettings";
@@ -14,24 +13,24 @@ export class Sku extends AggregateRoot {
     constructor(
         public readonly id: SkuId,
         public readonly value: SkuValue,
+        public readonly state: SkuState,
         public readonly priceBase: Price,
+        public readonly productId: ProductId,
         public readonly promotionalSettings: PromotionalSettings,
         public readonly stockList: Stock[],
-        public readonly atributesList: SkuAttribute[],
-        public readonly productId: ProductId,
-        public readonly state: SkuState,
+        public readonly attributesList: SkuAttribute[],
     ) { super() }
 
     public static fromPrimitives(data: SkuDTO): Sku {
         return new Sku(
             new SkuId(data.id),
             new SkuValue(data.value),
+            SkuState.fromValue(data.state),
             Price.fromPrimitives(data.priceBase),
+            new ProductId(data.productId),
             PromotionalSettings.fromPrimitives(data.promotionalSettings),
             data.stockList.map(entry => Stock.fromPrimitives(entry)),
-            data.atributesList.map(entry => SkuAttribute.fromPrimitives(entry)),
-            new ProductId(data.productId),
-            SkuState.fromValue(data.state)
+            data.attributesList.map(entry => SkuAttribute.fromPrimitives(entry)),
         )
     }
 
@@ -39,12 +38,12 @@ export class Sku extends AggregateRoot {
         return new SkuDTO(
             this.id.value,
             this.value.value,
+            this.state.value,
+            this.productId.value,
             this.priceBase.toPrimitives(),
             this.promotionalSettings.toPrimitives(),
             this.stockList.map(entry => entry.toPrimitives()),
-            this.atributesList.map(entry => entry.toPrimitives()),
-            this.productId.value,
-            this.state.value
+            this.attributesList.map(entry => entry.toPrimitives()),
         )
     }
 }
