@@ -1,18 +1,18 @@
 import { EntitySchema } from "typeorm";
-import { PriceDTO } from "../../../domain/PriceDTO";
+import { PriceDecorator } from "./PriceDecorator";
 
-export const PriceSchema = new EntitySchema<PriceDTO>({
-    name: 'PriceDTO',
+export const PriceSchema = new EntitySchema<PriceDecorator>({
+    name: 'PriceDecorator',
     tableName: 'tbl_price',
-    target: PriceDTO,
+    target: PriceDecorator,
     columns: {
         id: {
             type: String,
-            name: 'prc_id',
+            name: 'sku_id',
             primary: true
         },
         value: {
-            type: Number,
+            type: "money",
             name: 'prc_value'
         },
         currency: {
@@ -31,7 +31,7 @@ export const PriceSchema = new EntitySchema<PriceDTO>({
     relations: {
         skuId: {
             type: "one-to-one",
-            target: "SkuDTO",
+            target: "SkuDecorator",
             joinColumn: {
                 name: 'sku_id',
                 referencedColumnName: 'id'

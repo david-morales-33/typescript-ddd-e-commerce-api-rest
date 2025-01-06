@@ -1,10 +1,10 @@
 import { EntitySchema } from "typeorm";
-import { AvailabilityRegionDTO } from "../../../domain/AvailabilityRegionDTO";
+import { AvailabilityRegionDecorator } from "./AvailabilityRegionDecorator";
 
-export const AvailabilityRegionSchema = new EntitySchema<AvailabilityRegionDTO>({
-    name: 'AvailabilityRegionDTO',
+export const AvailabilityRegionSchema = new EntitySchema<AvailabilityRegionDecorator>({
+    name: 'AvailabilityRegionDecorator',
     tableName: 'tbl_availability_region',
-    target: AvailabilityRegionDTO,
+    target: AvailabilityRegionDecorator,
     columns: {
         id: {
             type: String,

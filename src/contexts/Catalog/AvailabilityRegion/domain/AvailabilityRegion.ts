@@ -3,7 +3,6 @@ import { UserId } from "../../User/domain/UserId";
 import { AvailabilityRegionCreationDate } from "./AvailabilityRegionCreationDate";
 import { AvailabilityRegionDTO } from "./AvailabilityRegionDTO";
 import { AvailabilityRegionId } from "./AvailabilityRegionId";
-import { AvailabilityRegionStock } from "./AvailabilityRegionStock";
 import { AvailabilityRegionValue } from "./AvailabilityRegionValue";
 
 export class AvailabilityRegion extends AggregateRoot {

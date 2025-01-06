@@ -1,14 +1,14 @@
 import { EntitySchema } from "typeorm";
-import { PromotionalSettingsDTO } from "../../../domain/PromotionalSettingsDTO";
+import { PromotionalSettingsDecorator } from "./PromotionalSettingsDecorator";
 
-export const PromotionalSettingsSchema = new EntitySchema<PromotionalSettingsDTO>({
-    name: 'PromotionalSettingsDTO',
+export const PromotionalSettingsSchema = new EntitySchema<PromotionalSettingsDecorator>({
+    name: 'PromotionalSettingsDecorator',
     tableName: 'tbl_promotional_settings',
-    target: PromotionalSettingsDTO,
+    target: PromotionalSettingsDecorator,
     columns: {
         id: {
             type: String,
-            name: 'prm_id',
+            name: 'sku_id',
             primary: true
         },
         type: {
@@ -16,7 +16,7 @@ export const PromotionalSettingsSchema = new EntitySchema<PromotionalSettingsDTO
             name: 'prm_type'
         },
         percentage: {
-            type: Number,
+            type: "float",
             name: 'prm_percentage'
         },
         initialDate: {
@@ -30,7 +30,7 @@ export const PromotionalSettingsSchema = new EntitySchema<PromotionalSettingsDTO
     },
     relations: {
         skuId: {
-            target: 'SkuDTO',
+            target: 'SkuDecorator',
             type: "one-to-one",
             joinColumn: {
                 name: 'sku_id',

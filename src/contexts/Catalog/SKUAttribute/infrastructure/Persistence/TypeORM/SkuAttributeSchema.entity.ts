@@ -1,10 +1,10 @@
 import { EntitySchema } from "typeorm";
-import { SkuAttributeDTO } from "../../../domain/SkuAttributeDTO";
+import { SkuAttributeDecorator } from "./SkuAttributeDecorator";
 
-export const SkuAttributeSchema = new EntitySchema<SkuAttributeDTO>({
-    name: 'SkuAttributeDTO',
+export const SkuAttributeSchema = new EntitySchema<SkuAttributeDecorator>({
+    name: 'SkuAttributeDecorator',
     tableName: 'tbl_sku_attribute',
-    target: SkuAttributeDTO,
+    target: SkuAttributeDecorator,
     columns: {
         id: {
             type: String,
@@ -19,12 +19,11 @@ export const SkuAttributeSchema = new EntitySchema<SkuAttributeDTO>({
     relations: {
         skuId: {
             type: "many-to-one",
-            target: "SkuDTO",
+            target: "SkuDecorator",
             joinColumn: {
                 name: 'sku_id',
                 referencedColumnName: 'id'
-            },
-            inverseSide: "SkuAttributeDTO"
+            }
         }
     }
 })

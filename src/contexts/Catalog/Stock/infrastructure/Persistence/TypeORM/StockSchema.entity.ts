@@ -1,10 +1,10 @@
 import { EntitySchema } from "typeorm";
-import { StockDTO } from "../../../domain/StockDTO";
+import { StockDecorator } from "./StockDecorator";
 
-export const StockSchema = new EntitySchema<StockDTO>({
-    name: 'StockDTO',
+export const StockSchema = new EntitySchema<StockDecorator>({
+    name: 'StockDecorator',
     tableName: 'tbl_stock',
-    target: StockDTO,
+    target: StockDecorator,
     columns: {
         id: {
             type: String,
@@ -19,7 +19,7 @@ export const StockSchema = new EntitySchema<StockDTO>({
     relations: {
         skuId: {
             type: "many-to-one",
-            target: 'SkuDTO',
+            target: 'SkuDecorator',
             joinColumn: {
                 name: 'sku_id',
                 referencedColumnName: 'id'
@@ -27,11 +27,13 @@ export const StockSchema = new EntitySchema<StockDTO>({
         },
         availabilityRegion: {
             type: "one-to-one",
-            target: "AvailabilityRegionDTO",
+            target: "AvailabilityRegionDecorator",
             joinColumn: {
                 name: 'avr_id',
                 referencedColumnName: 'id'
-            }
+            },
+            inverseSide: 'id',
+            cascade: true
         }
     }
 })

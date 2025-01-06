@@ -13,7 +13,6 @@ export class Price {
         public readonly currency: PriceCurrency,
         public readonly initialDate: PriceInitialDate,
         public readonly finalDate: PriceFinalDate,
-        public readonly skuId: SkuId,
     ) { }
 
     public static fromPrimitives(data: PriceDTO): Price {
@@ -23,7 +22,6 @@ export class Price {
             PriceCurrency.fromValue(data.currency),
             new PriceInitialDate(data.initialDate),
             new PriceFinalDate(data.finalDate),
-            new SkuId(data.skuId)
         )
     }
 
@@ -34,7 +32,6 @@ export class Price {
             this.currency.value,
             this.initialDate.value,
             this.finalDate.value,
-            this.skuId.value
         )
     }
 }

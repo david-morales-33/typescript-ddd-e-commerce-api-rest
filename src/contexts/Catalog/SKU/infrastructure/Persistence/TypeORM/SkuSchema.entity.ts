@@ -1,10 +1,10 @@
 import { EntitySchema } from "typeorm";
-import { SkuDTO } from "../../../domain/SkuDTO";
+import { SkuDecorator } from "./SkuDecorator";
 
-export const SkuSchema = new EntitySchema<SkuDTO>({
-    name: 'SkuDTO',
+export const SkuSchema = new EntitySchema<SkuDecorator>({
+    name: 'SkuDecorator',
     tableName: 'tbl_sku',
-    target: SkuDTO,
+    target: SkuDecorator,
     columns: {
         id: {
             type: String,
@@ -23,25 +23,25 @@ export const SkuSchema = new EntitySchema<SkuDTO>({
     relations: {
         priceBase: {
             type: "one-to-one",
-            target: "PriceDTO",
+            target: "PriceDecorator",
             inverseSide: "skuId",
             cascade: true
         },
         promotionalSettings: {
             type: "one-to-one",
-            target: "PromotionalSettingsDTO",
+            target: "PromotionalSettingsDecorator",
             inverseSide: "skuId",
             cascade: true
         },
         stockList: {
             type: "one-to-many",
-            target: "StockDTO",
+            target: "StockDecorator",
             inverseSide: "skuId",
             cascade: true
         },
         attributesList: {
             type: "one-to-many",
-            target: "SkuAttributeDTO",
+            target: "SkuAttributeDecorator",
             inverseSide: "skuId",
             cascade: true,
         }

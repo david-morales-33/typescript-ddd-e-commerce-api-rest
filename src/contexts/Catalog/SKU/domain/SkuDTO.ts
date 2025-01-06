@@ -8,7 +8,6 @@ export class SkuDTO {
         public readonly id: string,
         public readonly value: string,
         public readonly state: string,
-        public readonly productId: string,
         public readonly priceBase: PriceDTO,
         public readonly promotionalSettings: PromotionalSettingsDTO,
         public readonly stockList: StockDTO[],

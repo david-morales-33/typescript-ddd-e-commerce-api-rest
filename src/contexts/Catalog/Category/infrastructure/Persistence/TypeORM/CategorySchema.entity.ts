@@ -1,10 +1,10 @@
 import { EntitySchema } from "typeorm";
-import { CategoryDTO } from "../../../domain/CategoryDTO";
+import { CategoryDecorator } from "./CategoryDecorator";
 
-export const CategorySchema = new EntitySchema<CategoryDTO>({
-    name: 'CategoryDTO',
+export const CategorySchema = new EntitySchema<CategoryDecorator>({
+    name: 'CategoryDecorator',
     tableName: 'tbl_category',
-    target: CategoryDTO,
+    target: CategoryDecorator,
     columns: {
         id: {
             type: String,
