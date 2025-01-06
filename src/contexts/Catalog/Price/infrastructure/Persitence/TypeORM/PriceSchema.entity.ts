@@ -12,7 +12,7 @@ export const PriceSchema = new EntitySchema<PriceDTO>({
             primary: true
         },
         value: {
-            type: String,
+            type: Number,
             name: 'prc_value'
         },
         currency: {

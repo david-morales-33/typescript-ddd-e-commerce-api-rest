@@ -33,7 +33,7 @@ export const PromotionalSettingsSchema = new EntitySchema<PromotionalSettingsDTO
             target: 'SkuDTO',
             type: "one-to-one",
             joinColumn: {
-                name: 'prm_sku_id',
+                name: 'sku_id',
                 referencedColumnName: 'id'
             }
         }

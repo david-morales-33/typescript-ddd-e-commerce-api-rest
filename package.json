@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "entities-test": "ts-node test/entities.test.ts"
   },
   "author": "David Esteban Morales",
   "license": "ISC",

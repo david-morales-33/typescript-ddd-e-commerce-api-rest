@@ -21,21 +21,29 @@ export const SkuSchema = new EntitySchema<SkuDTO>({
         }
     },
     relations: {
-        productId: {
+        priceBase: {
             type: "one-to-one",
-            target: "PriceDTO"
+            target: "PriceDTO",
+            inverseSide: "skuId",
+            cascade: true
         },
         promotionalSettings: {
             type: "one-to-one",
-            target: "PromotionalSettingsDTO"
+            target: "PromotionalSettingsDTO",
+            inverseSide: "skuId",
+            cascade: true
         },
         stockList: {
             type: "one-to-many",
-            target: "StockDTO"
+            target: "StockDTO",
+            inverseSide: "skuId",
+            cascade: true
         },
         attributesList: {
             type: "one-to-many",
-            target: "SkuAttributeDTO"
+            target: "SkuAttributeDTO",
+            inverseSide: "skuId",
+            cascade: true,
         }
     }
 })

@@ -23,7 +23,8 @@ export const SkuAttributeSchema = new EntitySchema<SkuAttributeDTO>({
             joinColumn: {
                 name: 'sku_id',
                 referencedColumnName: 'id'
-            }
+            },
+            inverseSide: "SkuAttributeDTO"
         }
     }
 })
