@@ -11,11 +11,11 @@ import { TypeOrmClientFactory } from "../src/contexts/Shared/infrastructure/Pers
 
 async function main() {
     const connection = await TypeOrmClientFactory.createClient({
-        // host: 'localhost',
-        // database: 'gestion_e_commerce',
-        // port: 1433,
-        // username: 'sa',
-        // password: 'Sistemas-2020'
+        host: 'localhost',
+        database: 'gestion_e_commerce',
+        port: 1433,
+        username: 'sa',
+        password: 'Sistemas-2020'
     });
     try {
 

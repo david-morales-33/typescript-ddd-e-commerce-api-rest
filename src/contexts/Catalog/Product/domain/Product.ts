@@ -17,6 +17,8 @@ import { ProductSkuCounter } from "./ProductSkuCounter";
 import { CreationEventDTO } from "../../CreationEvent/domain/CreationEventDTO";
 import { ProductDTO } from "./ProductDTO";
 import { UpdateEvent } from "../../UpdateEvent/domain/UpdateEvent";
+import { UserId } from "../../User/domain/UserId";
+import { ProductCreationDate } from "./ProductCreationDate";
 
 export class Product extends AggregateRoot {
 
@@ -38,7 +40,8 @@ export class Product extends AggregateRoot {
         public readonly name: ProductName,
         public readonly state: ProductState,
         public readonly description: ProductDescription,
-        public readonly creationEvent: CreationEvent
+        public readonly createBy: UserId,
+        public readonly createAt: ProductCreationDate
     ) {
         super();
         this._specificatinsCounter = new ProductSpecificationsCounter(this._specificationList.length);
@@ -52,9 +55,10 @@ export class Product extends AggregateRoot {
         name: ProductName,
         state: ProductState,
         description: ProductDescription,
-        creationEvent: CreationEvent
+        createBy: UserId,
+        createAt: ProductCreationDate
     ): Product {
-        return new Product(id, name, state, description, creationEvent);
+        return new Product(id, name, state, description, createBy, createAt);
     }
 
     public static fromPrimitives(data: {
@@ -62,14 +66,16 @@ export class Product extends AggregateRoot {
         name: string,
         state: string,
         description: string,
-        creationEvent: CreationEventDTO,
+        createBy: string,
+        createAt: Date
     }): Product {
         return new Product(
             new ProductId(data.id),
             new ProductName(data.name),
             ProductState.fromValue(data.state),
             new ProductDescription(data.description),
-            CreationEvent.fromPrimitives(data.creationEvent)
+            new UserId(data.createBy),
+            new ProductCreationDate(data.createAt)
         )
     }
 
@@ -207,8 +213,9 @@ export class Product extends AggregateRoot {
             this.name.value,
             this.state.value,
             this.description.value,
-            this.creationEvent.toPrimitives(),
-            this._updateEventList.map(entry => entry),
+            this.createBy.value,
+            this.createAt.value,
+            this._updateEventList.map(entry => entry.toPrimitives()),
             this._specificationList.map(entry => entry.toPrimitives()),
             this._complementList.map(entry => entry.toPrimitives()),
             this._mediaFileList.map(entry => entry.toPrimitives()),
