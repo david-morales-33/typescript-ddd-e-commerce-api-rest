@@ -1,7 +1,7 @@
 
 export class ProductTypeDTO {
     constructor(
-        public readonly id: string,
+        public readonly id: number,
         public readonly value: string
     ) { }
 }

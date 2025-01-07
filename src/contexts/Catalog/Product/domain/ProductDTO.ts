@@ -3,6 +3,7 @@ import { ComplementDTO } from "../../Complement/domain/ComplementDTO";
 import { CreationEventDTO } from "../../CreationEvent/domain/CreationEventDTO";
 import { LabelDTO } from "../../Label/domain/LabelDTO";
 import { MediaFileDTO } from "../../MediaFile/domain/MediaFileDTO";
+import { ProductTypeDTO } from "../../ProductType/domain/ProductTypeDTO";
 import { SkuDTO } from "../../SKU/domain/SkuDTO";
 import { SpecificationDTO } from "../../Specification/domain/SpecificationDTO";
 import { UpdateEventDTO } from "../../UpdateEvent/domain/UpdateEventDTO";
@@ -12,6 +13,7 @@ export class ProductDTO {
         public readonly id: string,
         public readonly name: string,
         public readonly state: string,
+        public readonly type: ProductTypeDTO,
         public readonly description: string,
         public readonly createBy: string,
         public readonly createAt: Date,

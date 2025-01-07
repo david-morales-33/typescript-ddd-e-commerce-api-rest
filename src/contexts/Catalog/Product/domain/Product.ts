@@ -17,6 +17,8 @@ import { ProductDTO } from "./ProductDTO";
 import { UpdateEvent } from "../../UpdateEvent/domain/UpdateEvent";
 import { UserId } from "../../User/domain/UserId";
 import { ProductCreationDate } from "./ProductCreationDate";
+import { ProductType } from "../../ProductType/domain/ProductType";
+import { ProductTypeDTO } from "../../ProductType/domain/ProductTypeDTO";
 
 export class Product extends AggregateRoot {
 
@@ -37,6 +39,7 @@ export class Product extends AggregateRoot {
         public readonly id: ProductId,
         public readonly name: ProductName,
         public readonly state: ProductState,
+        public readonly type: ProductType,
         public readonly description: ProductDescription,
         public readonly createBy: UserId,
         public readonly createAt: ProductCreationDate
@@ -52,17 +55,19 @@ export class Product extends AggregateRoot {
         id: ProductId,
         name: ProductName,
         state: ProductState,
+        type: ProductType,
         description: ProductDescription,
         createBy: UserId,
         createAt: ProductCreationDate
     ): Product {
-        return new Product(id, name, state, description, createBy, createAt);
+        return new Product(id, name, state, type, description, createBy, createAt);
     }
 
     public static fromPrimitives(data: {
         id: string,
         name: string,
         state: string,
+        type: ProductTypeDTO,
         description: string,
         createBy: string,
         createAt: Date
@@ -71,6 +76,7 @@ export class Product extends AggregateRoot {
             new ProductId(data.id),
             new ProductName(data.name),
             ProductState.fromValue(data.state),
+            ProductType.fromPrimitives(data.type),
             new ProductDescription(data.description),
             new UserId(data.createBy),
             new ProductCreationDate(data.createAt)
@@ -210,6 +216,7 @@ export class Product extends AggregateRoot {
             this.id.value,
             this.name.value,
             this.state.value,
+            this.type.toPrimitives(),
             this.description.value,
             this.createBy.value,
             this.createAt.value,
