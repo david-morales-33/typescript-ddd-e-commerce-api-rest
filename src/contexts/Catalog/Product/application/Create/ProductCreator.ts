@@ -1,10 +1,7 @@
-import { CreationEvent } from "../../../CreationEvent/domain/CreationEvent";
-import { CreationEventDate } from "../../../CreationEvent/domain/CreationEventDate";
-import { CreationEventId } from "../../../CreationEvent/domain/CreationEventId";
-import { CreationEventName } from "../../../CreationEvent/domain/CreationEventName";
 import { UserId } from "../../../User/domain/UserId";
 import { Product } from "../../domain/Product";
 import { ProductCommandRepository } from "../../domain/ProductCommandRepository";
+import { ProductCreationDate } from "../../domain/ProductCreationDate";
 import { ProductDescription } from "../../domain/ProductDescription";
 import { ProductId } from "../../domain/ProductId";
 import { ProductName } from "../../domain/ProductName";
@@ -15,17 +12,9 @@ export class ProductCreator {
 
     async execute(id: ProductId, name: ProductName, description: ProductDescription, createBy: UserId) {
 
-        const state = ProductState.fromValue('Enable');
-
-        const creationDate = new CreationEvent(
-            new CreationEventId(CreationEventId.random().value),
-            new CreationEventName('New product'),
-            new CreationEventDate(new Date()),
-            createBy
-        );
-
-        const product = new Product(id, name, state, description, creationDate);
-
+        const state = ProductState.fromValue('Available');
+        const createAt = new ProductCreationDate(new Date());
+        const product = new Product(id, name, state, description, createBy, createAt);
         await this.commandRepository.save(product)
     }
 }

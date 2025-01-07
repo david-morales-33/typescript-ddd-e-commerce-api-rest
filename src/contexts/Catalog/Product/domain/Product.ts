@@ -1,7 +1,6 @@
 import { ProductSpecificationsCounter } from "./ProductSpecificationsCounter";
 import { AggregateRoot } from "../../../Shared/domain/aggregate/AggregateRoot";
 import { Specification } from "../../Specification/domain/Specification";
-import { CreationEvent } from "../../CreationEvent/domain/CreationEvent";
 import { Category } from "../../Category/domain/Category";
 import { Complement } from "../../Complement/domain/Complement";
 import { Label } from "../../Label/domain/Label";
@@ -14,7 +13,6 @@ import { ProductMediaFileCounter } from "./ProductMediaFileCounter";
 import { ProductName } from "./ProductName";
 import { ProductState } from "./ProductState";
 import { ProductSkuCounter } from "./ProductSkuCounter";
-import { CreationEventDTO } from "../../CreationEvent/domain/CreationEventDTO";
 import { ProductDTO } from "./ProductDTO";
 import { UpdateEvent } from "../../UpdateEvent/domain/UpdateEvent";
 import { UserId } from "../../User/domain/UserId";
