@@ -55,15 +55,15 @@ async function main() {
         // await skuRepo.save(sku);
         const response = await skuRepo.find({
             relations: [
-                "attributesList",
+                // "attributesList",
                 "priceBase",
                 "promotionalSettings",
                 "stockList",
                 "stockList.availabilityRegion"
             ]
         })
-        const skuentity = Sku.fromPrimitives(response[0] as SkuDecorator);
-        console.log(skuentity.toPrimitives())
+        // const skuentity = Sku.fromPrimitives(response[0] as SkuDecorator);
+        // console.log(skuentity.toPrimitives())
     } catch (error) {
         console.log(error);
     } finally { await connection.destroy() }
