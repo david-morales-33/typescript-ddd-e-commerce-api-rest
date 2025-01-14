@@ -6,5 +6,7 @@ export class PromotionalSettingsDTO {
         public readonly percentage: number,
         public readonly initialDate: Date,
         public readonly finalDate: Date,
+        public readonly createBy: string,
+        public readonly createAt: Date
     ) { }
 }

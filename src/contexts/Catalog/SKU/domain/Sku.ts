@@ -1,3 +1,4 @@
+import { map } from "mssql";
 import { AggregateRoot } from "../../../Shared/domain/aggregate/AggregateRoot";
 import { Price } from "../../Price/domain/Price";
 import { PromotionalSettings } from "../../PromotionalSettings/domain/PromotionalSettings";
@@ -16,7 +17,7 @@ export class Sku extends AggregateRoot {
         public readonly priceBase: Price,
         public readonly stockList: Stock[],
         public readonly attributesList: SkuAttribute[],
-        public readonly promotionalSettings?: PromotionalSettings
+        public readonly promotionalSettings: PromotionalSettings[]
     ) { super() }
 
     public static fromPrimitives(data: SkuDTO): Sku {
@@ -27,8 +28,12 @@ export class Sku extends AggregateRoot {
             Price.fromPrimitives(data.priceBase),
             data.stockList.map(entry => Stock.fromPrimitives(entry)),
             data.attributesList.map(entry => SkuAttribute.fromPrimitives(entry)),
-            data.promotionalSettings ? PromotionalSettings.fromPrimitives(data.promotionalSettings) : undefined
+            data.promotionalSettings.map(entry => PromotionalSettings.fromPrimitives(entry))
         )
+    }
+
+    public addPromotionalSettings(promottionalSettings: PromotionalSettings) {
+        this.promotionalSettings.push(promottionalSettings);
     }
 
     public toPrimitives(): SkuDTO {
@@ -39,7 +44,7 @@ export class Sku extends AggregateRoot {
             this.priceBase.toPrimitives(),
             this.stockList.map(entry => entry.toPrimitives()),
             this.attributesList.map(entry => entry.toPrimitives()),
-            this.promotionalSettings ? this.promotionalSettings.toPrimitives() : undefined
+            this.promotionalSettings.map(entry => entry.toPrimitives())
         )
     }
 }

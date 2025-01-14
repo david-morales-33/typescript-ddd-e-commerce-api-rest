@@ -11,6 +11,6 @@ export class SkuDTO {
         public readonly priceBase: PriceDTO,
         public readonly stockList: StockDTO[],
         public readonly attributesList: SkuAttributeDTO[],
-        public readonly promotionalSettings?: PromotionalSettingsDTO
+        public readonly promotionalSettings: PromotionalSettingsDTO[]
     ) { }
 }
