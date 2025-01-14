@@ -1,6 +1,5 @@
 import { AggregateRoot } from "../../../Shared/domain/aggregate/AggregateRoot";
 import { Price } from "../../Price/domain/Price";
-import { ProductId } from "../../Product/domain/ProductId";
 import { PromotionalSettings } from "../../PromotionalSettings/domain/PromotionalSettings";
 import { SkuAttribute } from "../../SKUAttribute/domain/SkuAttribute";
 import { Stock } from "../../Stock/domain/Stock";
@@ -15,9 +14,9 @@ export class Sku extends AggregateRoot {
         public readonly value: SkuValue,
         public readonly state: SkuState,
         public readonly priceBase: Price,
-        public readonly promotionalSettings: PromotionalSettings,
         public readonly stockList: Stock[],
         public readonly attributesList: SkuAttribute[],
+        public readonly promotionalSettings?: PromotionalSettings
     ) { super() }
 
     public static fromPrimitives(data: SkuDTO): Sku {
@@ -26,9 +25,9 @@ export class Sku extends AggregateRoot {
             new SkuValue(data.value),
             SkuState.fromValue(data.state),
             Price.fromPrimitives(data.priceBase),
-            PromotionalSettings.fromPrimitives(data.promotionalSettings),
             data.stockList.map(entry => Stock.fromPrimitives(entry)),
             data.attributesList.map(entry => SkuAttribute.fromPrimitives(entry)),
+            data.promotionalSettings ? PromotionalSettings.fromPrimitives(data.promotionalSettings) : undefined
         )
     }
 
@@ -38,9 +37,9 @@ export class Sku extends AggregateRoot {
             this.value.value,
             this.state.value,
             this.priceBase.toPrimitives(),
-            this.promotionalSettings.toPrimitives(),
             this.stockList.map(entry => entry.toPrimitives()),
             this.attributesList.map(entry => entry.toPrimitives()),
+            this.promotionalSettings ? this.promotionalSettings.toPrimitives() : undefined
         )
     }
 }
