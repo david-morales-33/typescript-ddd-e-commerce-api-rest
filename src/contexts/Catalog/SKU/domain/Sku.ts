@@ -8,8 +8,12 @@ import { SkuDTO } from "./SkuDTO";
 import { SkuId } from "./SkuId";
 import { SkuState } from "./SkuState";
 import { SkuValue } from "./SkuValue";
+import { SkuAttributesCounter } from "./SkuAttributesCounter";
 
 export class Sku extends AggregateRoot {
+
+    private _attributesCounter: SkuAttributesCounter;
+
     constructor(
         public readonly id: SkuId,
         public readonly value: SkuValue,
@@ -18,7 +22,10 @@ export class Sku extends AggregateRoot {
         public readonly stockList: Stock[],
         public readonly attributesList: SkuAttribute[],
         public readonly promotionalSettings: PromotionalSettings[]
-    ) { super() }
+    ) {
+        super();
+        this._attributesCounter = new SkuAttributesCounter(attributesList.length);
+    }
 
     public static fromPrimitives(data: SkuDTO): Sku {
         return new Sku(
@@ -32,8 +39,23 @@ export class Sku extends AggregateRoot {
         )
     }
 
+    public get attributesCounter(): SkuAttributesCounter {
+        return this._attributesCounter;
+    }
+
     public addPromotionalSettings(promottionalSettings: PromotionalSettings) {
         this.promotionalSettings.push(promottionalSettings);
+    }
+
+    public addAttributeList(attributeList: SkuAttribute[]){
+        attributeList.forEach(element => {
+            this.attributesList.push(element);
+        })
+        this._attributesCounter = this.incrementAttributesList(attributeList.length);
+    }
+
+    private incrementAttributesList(value: number): SkuAttributesCounter {
+        return this._attributesCounter.increment(value);
     }
 
     public toPrimitives(): SkuDTO {
