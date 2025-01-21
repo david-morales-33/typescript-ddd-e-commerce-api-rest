@@ -47,11 +47,21 @@ export class Sku extends AggregateRoot {
         this.promotionalSettings.push(promottionalSettings);
     }
 
-    public addAttributeList(attributeList: SkuAttribute[]){
+    public addAvailableStock(availableStock: Stock) {
+        this.stockList.push(availableStock);
+    }
+
+    public addAttributeList(attributeList: SkuAttribute[]) {
         attributeList.forEach(element => {
             this.attributesList.push(element);
         })
         this._attributesCounter = this.incrementAttributesList(attributeList.length);
+    }
+
+    public addStokList(stockList: Stock[]) {
+        stockList.forEach(element => {
+            this.stockList.push(element);
+        })
     }
 
     private incrementAttributesList(value: number): SkuAttributesCounter {
