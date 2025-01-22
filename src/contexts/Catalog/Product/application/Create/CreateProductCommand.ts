@@ -4,6 +4,8 @@ export class CreateProductCommand implements Command {
     constructor(
         public readonly id: string,
         public readonly name: string,
+        public readonly typeId: number,
+        public readonly typeValue: string,
         public readonly description: string,
         public readonly createBy: string
     ) { }

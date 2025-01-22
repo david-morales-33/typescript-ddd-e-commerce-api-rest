@@ -1,4 +1,4 @@
-import { UserId } from "../../../User/domain/UserId";
+import { UserId } from "../../../../Shared/domain/value-objects/UserId";
 import { AvailabilityRegion } from "../../domain/AvailabilityRegion";
 import { AvailabilityRegionCommandRepository } from "../../domain/AvailabilityRegionCommandRepository";
 import { AvailabilityRegionCreationDate } from "../../domain/AvailabilityRegionCreationDate";

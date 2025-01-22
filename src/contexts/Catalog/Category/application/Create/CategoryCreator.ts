@@ -1,4 +1,4 @@
-import { UserId } from "../../../User/domain/UserId";
+import { UserId } from "../../../../Shared/domain/value-objects/UserId";
 import { Category } from "../../domain/Category";
 import { CategoryCommandRepository } from "../../domain/CategoryCommandRepository";
 import { CategoryCreationDate } from "../../domain/CategoryCreationDate";

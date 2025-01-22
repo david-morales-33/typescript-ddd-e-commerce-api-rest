@@ -1,5 +1,4 @@
-import { User } from "../../User/domain/User";
-import { UserId } from "../../User/domain/UserId";
+import { UserId } from "../../../Shared/domain/value-objects/UserId";
 import { CreationEventDate } from "./CreationEventDate";
 import { CreationEventDTO } from "./CreationEventDTO";
 import { CreationEventId } from "./CreationEventId";

@@ -1,6 +1,6 @@
 import { Command } from "../../../../Shared/domain/cqrs/Command";
 import { CommandHandler } from "../../../../Shared/domain/cqrs/CommandHandler";
-import { UserId } from "../../../User/domain/UserId";
+import { UserId } from "../../../../Shared/domain/value-objects/UserId";
 import { AvailabilityRegionCreationDate } from "../../domain/AvailabilityRegionCreationDate";
 import { AvailabilityRegionId } from "../../domain/AvailabilityRegionId";
 import { AvailabilityRegionValue } from "../../domain/AvailabilityRegionValue";

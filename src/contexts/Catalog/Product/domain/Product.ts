@@ -15,10 +15,10 @@ import { ProductState } from "./ProductState";
 import { ProductSkuCounter } from "./ProductSkuCounter";
 import { ProductDTO } from "./ProductDTO";
 import { UpdateEvent } from "../../UpdateEvent/domain/UpdateEvent";
-import { UserId } from "../../User/domain/UserId";
 import { ProductCreationDate } from "./ProductCreationDate";
 import { ProductType } from "../../ProductType/domain/ProductType";
 import { ProductTypeDTO } from "../../ProductType/domain/ProductTypeDTO";
+import { UserId } from "../../../Shared/domain/value-objects/UserId";
 
 export class Product extends AggregateRoot {
 

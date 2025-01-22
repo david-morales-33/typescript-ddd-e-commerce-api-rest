@@ -1,4 +1,4 @@
-import { UserId } from "../../User/domain/UserId";
+import { UserId } from "../../../Shared/domain/value-objects/UserId";
 import { PromotionalSettingsCreationDate } from "./PromotionalSettingsCreationDate";
 import { PromotionalSettingsDTO } from "./PromotionalSettingsDTO";
 import { PromotionalSettingsFinalDate } from "./PromotionalSettingsFinalDate";

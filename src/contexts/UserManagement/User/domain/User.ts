@@ -1,6 +1,6 @@
+import { UserId } from "../../../Shared/domain/value-objects/UserId";
 import { UserDTO } from "./UserDTO";
 import { UserEmail } from "./UserEmail";
-import { UserId } from "./UserId";
 import { UserName } from "./UserName";
 import { UserRole } from "./UserRole";
 

@@ -1,5 +1,6 @@
 import { Command } from "../../../../Shared/domain/cqrs/Command";
 import { CommandHandler } from "../../../../Shared/domain/cqrs/CommandHandler";
+import { UserId } from "../../../../Shared/domain/value-objects/UserId";
 import { PromotionalSettings } from "../../../PromotionalSettings/domain/PromotionalSettings";
 import { PromotionalSettingsCreationDate } from "../../../PromotionalSettings/domain/PromotionalSettingsCreationDate";
 import { PromotionalSettingsFinalDate } from "../../../PromotionalSettings/domain/PromotionalSettingsFinalDate";
@@ -7,7 +8,6 @@ import { PromotionalSettingsId } from "../../../PromotionalSettings/domain/Promo
 import { PromotionalSettingsInitialDate } from "../../../PromotionalSettings/domain/PromotionalSettingsInitialDate";
 import { PromotionalSettingsPercentage } from "../../../PromotionalSettings/domain/PromotionalSettingsPercentage";
 import { PromotionalSettingsType } from "../../../PromotionalSettings/domain/PromotionalSettingsType";
-import { UserId } from "../../../User/domain/UserId";
 import { SkuId } from "../../domain/SkuId";
 import { AddPromotionalSettingsCommand } from "./AddPromotionalSettingsCommand";
 import { PromotionalSettingsCreator } from "./PromotionalSettingsCreator";

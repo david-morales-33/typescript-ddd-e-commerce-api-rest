@@ -1,5 +1,5 @@
 import { AggregateRoot } from "../../../Shared/domain/aggregate/AggregateRoot";
-import { UserId } from "../../User/domain/UserId";
+import { UserId } from "../../../Shared/domain/value-objects/UserId";
 import { AvailabilityRegionCreationDate } from "./AvailabilityRegionCreationDate";
 import { AvailabilityRegionDTO } from "./AvailabilityRegionDTO";
 import { AvailabilityRegionId } from "./AvailabilityRegionId";

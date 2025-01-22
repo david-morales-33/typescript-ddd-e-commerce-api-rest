@@ -1,4 +1,3 @@
-import { UserDTO } from "../../User/domain/UserDTO";
 
 export class UpdateEventDTO {
     constructor(

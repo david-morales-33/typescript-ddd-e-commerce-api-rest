@@ -1,4 +1,4 @@
-import { UserId } from "../../User/domain/UserId";
+import { UserId } from "../../../Shared/domain/value-objects/UserId";
 import { UpdateEventDate } from "./UpdateEventDate";
 import { UpdateEventDescription } from "./UpdateEventDescription";
 import { UpdateEventDTO } from "./UpdateEventDTO";
