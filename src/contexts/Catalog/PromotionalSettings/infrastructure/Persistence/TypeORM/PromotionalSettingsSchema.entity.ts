@@ -31,11 +31,12 @@ export const PromotionalSettingsSchema = new EntitySchema<PromotionalSettingsDec
     relations: {
         skuId: {
             target: 'SkuDecorator',
-            type: "one-to-one",
+            type: "many-to-one",
             joinColumn: {
                 name: 'sku_id',
                 referencedColumnName: 'id'
-            }
+            }, 
+            inverseSide: "id"
         }
     }
 })

@@ -11,8 +11,8 @@ export class SkuDecorator extends SkuDTO {
         public readonly value: string,
         public readonly state: string,
         public readonly priceBase: PriceDTO,
-        public readonly promotionalSettings: PromotionalSettingsDTO,
+        public readonly promotionalSettings: PromotionalSettingsDTO[],
         public readonly stockList: StockDTO[],
         public readonly attributesList: SkuAttributeDTO[],
-    ) { super(id, value, state, priceBase, promotionalSettings, stockList, attributesList) }
+    ) { super(id, value, state, priceBase, stockList, attributesList, promotionalSettings) }
 }

@@ -28,7 +28,7 @@ export const SkuSchema = new EntitySchema<SkuDecorator>({
             cascade: true
         },
         promotionalSettings: {
-            type: "one-to-one",
+            type: "one-to-many",
             target: "PromotionalSettingsDecorator",
             inverseSide: "skuId",
             cascade: true
