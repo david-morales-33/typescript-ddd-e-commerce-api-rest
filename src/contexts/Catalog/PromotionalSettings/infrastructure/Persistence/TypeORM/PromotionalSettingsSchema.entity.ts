@@ -8,12 +8,13 @@ export const PromotionalSettingsSchema = new EntitySchema<PromotionalSettingsDec
     columns: {
         id: {
             type: String,
-            name: 'sku_id',
+            name: 'prm_id',
             primary: true
         },
         type: {
             type: String,
-            name: 'prm_type'
+            name: 'prm_type',
+            unique: true
         },
         percentage: {
             type: "float",
