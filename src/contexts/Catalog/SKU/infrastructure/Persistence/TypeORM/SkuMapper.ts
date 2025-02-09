@@ -11,10 +11,11 @@ export class SkuMapper {
         return Sku.fromPrimitives(entity)
     }
 
-    public static convertFromDomainObject(entity: SkuDTO): SkuDecorator {
-        const skuId = entity.id;
-        const attributeSkuList = entity.attributesList.map(entry => new SkuAttributeDecorator(entry.id, entry.label, skuId));
-        const stokList = entity.stockList.map(entry => new StockDecorator(
+    public static convertFromDomainObject(entity: Sku): SkuDecorator {
+        const obj = entity.toPrimitives()
+        const skuId = obj.id;
+        const attributeSkuList = obj.attributesList.map(entry => new SkuAttributeDecorator(entry.id, entry.label, skuId));
+        const stokList = obj.stockList.map(entry => new StockDecorator(
             entry.id,
             entry.state,
             new AvailabilityRegionDecorator(
@@ -24,7 +25,7 @@ export class SkuMapper {
                 entry.availabilityRegion.createAt),
             skuId
         ));
-        const promotionalSettingsList = entity.promotionalSettings.map(entry => new PromotionalSettingsDecorator(
+        const promotionalSettingsList = obj.promotionalSettings.map(entry => new PromotionalSettingsDecorator(
             entry.id,
             entry.type,
             entry.percentage,
@@ -37,9 +38,9 @@ export class SkuMapper {
         return new SkuDecorator(
             '', 
             skuId, 
-            entity.id, 
-            entity.state, 
-            entity.priceBase, 
+            obj.id, 
+            obj.state, 
+            obj.priceBase, 
             promotionalSettingsList, 
             stokList, 
             attributeSkuList
