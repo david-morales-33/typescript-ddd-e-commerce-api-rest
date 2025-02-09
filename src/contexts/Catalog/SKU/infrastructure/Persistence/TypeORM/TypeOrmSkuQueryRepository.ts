@@ -16,8 +16,21 @@ export class TypeOrmSkuQueryRepository
     }
     async find(skuId: SkuId): Promise<Sku | null> {
         const repository = await this.repository();
-        const response = await repository.findOneBy({ "id": skuId.value })
-        if (response === null) return null
-        return SkuMapper.convertFromPersistenceObject(response);
+        const response = await repository.find({
+            relations: {
+                "attributesList": true,
+                "priceBase": true,
+                "promotionalSettings": true,
+                "stockList": {
+                    "availabilityRegion": true
+                }
+            },
+            where: {
+                "id": skuId.value
+            }
+        });
+        const sku = response[0];
+        if (response.length === 0) return null
+        return SkuMapper.convertFromPersistenceObject(sku);
     }
 }
