@@ -6,9 +6,14 @@ export const StockSchema = new EntitySchema<StockDecorator>({
     tableName: 'tbl_stock',
     target: StockDecorator,
     columns: {
-        id: {
+        skuId:{
             type: String,
-            name: 'stk_id',
+            name: 'sku_id',
+            primary: true
+        },
+        availabilityRegion:{
+            type: String,
+            name: 'avr_id',
             primary: true
         },
         state: {
@@ -26,14 +31,12 @@ export const StockSchema = new EntitySchema<StockDecorator>({
             }
         },
         availabilityRegion: {
-            type: "one-to-one",
+            type: "many-to-one",
             target: "AvailabilityRegionDecorator",
             joinColumn: {
                 name: 'avr_id',
                 referencedColumnName: 'id'
-            },
-            inverseSide: 'id',
-            cascade: true
+            }
         }
     }
 })

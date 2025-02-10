@@ -14,7 +14,6 @@ export const PromotionalSettingsSchema = new EntitySchema<PromotionalSettingsDec
         type: {
             type: String,
             name: 'prm_type',
-            unique: true
         },
         percentage: {
             type: "float",
@@ -27,6 +26,14 @@ export const PromotionalSettingsSchema = new EntitySchema<PromotionalSettingsDec
         finalDate: {
             type: Date,
             name: 'prm_final_date'
+        },
+        createBy:{
+            type: String,
+            name: 'prm_create_by'
+        },
+        createAt:{
+            type: Date,
+            name: 'prm_create_at'
         }
     },
     relations: {

@@ -38,7 +38,7 @@ export class SkuMapper {
         return new SkuDecorator(
             '', 
             skuId, 
-            obj.id, 
+            obj.value, 
             obj.state, 
             obj.priceBase, 
             promotionalSettingsList, 
