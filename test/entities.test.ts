@@ -4,8 +4,6 @@ import { PromotionalSettingsDTO } from '../src/contexts/Catalog/PromotionalSetti
 import { Sku } from '../src/contexts/Catalog/SKU/domain/Sku';
 import { SkuDTO } from '../src/contexts/Catalog/SKU/domain/SkuDTO';
 import { SkuId } from '../src/contexts/Catalog/SKU/domain/SkuId';
-import { SkuMapper } from '../src/contexts/Catalog/SKU/infrastructure/Persistence/TypeORM/SkuMapper';
-import { TypeOrmSkuCommandRepository } from '../src/contexts/Catalog/SKU/infrastructure/Persistence/TypeORM/TypeOrmSkuCommandRepository';
 import { TypeOrmSkuQueryRepository } from '../src/contexts/Catalog/SKU/infrastructure/Persistence/TypeORM/TypeOrmSkuQueryRepository';
 import { SkuAttributeDTO } from '../src/contexts/Catalog/SKUAttribute/domain/SkuAttributeDTO';
 import { StockDTO } from '../src/contexts/Catalog/Stock/domain/StockDTO';
@@ -62,7 +60,7 @@ import { EnviromentConfig } from '../src/server/Catalog/EnviromentConfig';
         // await repo.save(skuObj);
         const response = await query.find(new SkuId('4ec62d91-ae51-41b1-832f-3de975aa174e'));
 
-        console.log(response);
+        console.log(response ? response.toPrimitives() : null);
     } catch (err) {
         console.log(err)
     } finally {
