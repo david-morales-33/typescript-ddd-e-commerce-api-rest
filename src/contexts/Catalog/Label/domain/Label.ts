@@ -8,6 +8,12 @@ export class Label {
         public readonly value: LabelValue
     ) { }
 
+    public static create(
+        id: LabelId,
+        value: LabelValue
+    ): Label {
+        return new Label(id, value);
+    }
     public static fromPrimitives(data: LabelDTO): Label {
         return new Label(
             new LabelId(data.id),
