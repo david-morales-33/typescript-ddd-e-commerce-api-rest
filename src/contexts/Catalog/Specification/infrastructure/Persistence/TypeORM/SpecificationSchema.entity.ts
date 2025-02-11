@@ -1,26 +1,27 @@
 import { EntitySchema } from "typeorm";
 import { SpecificationDecorator } from "./SpecificationDecorator";
 
-export const SpecificationSchema =  new EntitySchema<SpecificationDecorator>({
+export const SpecificationSchema = new EntitySchema<SpecificationDecorator>({
     name: "SpecificationDecorator",
     tableName: "tbl_specification",
-    columns:{
-        id:{
+    columns: {
+        id: {
             type: String,
-            name: "spc_id"
+            name: "spc_id",
+            primary: true
         },
-        name:{
+        name: {
             type: String,
-            name:"spc_value"
+            name: "spc_value"
         }
     },
-    relations:{
-        productId:{
+    relations: {
+        productId: {
             type: "many-to-one",
-            target: "SpecificationDecorator",
+            target: "ProductDecorator",
             joinColumn: {
                 name: "prd_id",
-                referencedColumnName:"id"
+                referencedColumnName: "id"
             }
         }
     }

@@ -7,6 +7,11 @@ import { PromotionalSettingsSchema } from '../../../../Catalog/PromotionalSettin
 import { StockSchema } from '../../../../Catalog/Stock/infrastructure/Persistence/TypeORM/StockSchema.entity';
 import { SkuAttributeSchema } from '../../../../Catalog/SKUAttribute/infrastructure/Persistence/TypeORM/SkuAttributeSchema.entity';
 import { SkuSchema } from '../../../../Catalog/SKU/infrastructure/Persistence/TypeORM/SkuSchema.entity';
+import { ProductSchema } from '../../../../Catalog/Product/infrastructure/Persistence/TypeORM/ProductSchema.entity';
+import { UpdateEventProductSchema } from '../../../../Catalog/UpdateEvent/infrastructure/Persistence/TypeORM/UpdateEventProductSchema.entity';
+import { SpecificationSchema } from '../../../../Catalog/Specification/infrastructure/Persistence/TypeORM/SpecificationSchema.entity';
+import { MediaFileSchema } from '../../../../Catalog/MediaFile/infrastructure/Persistence/TypeORM/MediaFileSchema.entity';
+import { LabelSchema } from '../../../../Catalog/Label/infrastructure/Persistence/TypeORM/LabelSchema.entity';
 
 export class TypeOrmClientFactory {
     static async createClient(config: TypeOrmConfig): Promise<DataSource> {
@@ -25,12 +30,18 @@ export class TypeOrmClientFactory {
                 },
                 entities: [
                     AvailabilityRegionSchema,
-                    CategorySchema,
                     PriceSchema,
                     PromotionalSettingsSchema,
                     StockSchema,
                     SkuAttributeSchema,
-                    SkuSchema
+                    SkuSchema,
+                    ProductSchema,
+                    UpdateEventProductSchema,
+                    SpecificationSchema,
+                    MediaFileSchema,
+                    CategorySchema,
+                    LabelSchema,
+                    
                 ],
                 synchronize: true,
             });

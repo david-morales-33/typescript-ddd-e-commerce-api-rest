@@ -22,7 +22,7 @@ import { EnviromentConfig } from '../src/server/Catalog/EnviromentConfig';
     }
     const client = TypeOrmClientFactory.createClient(connecEnv);
     // const repo = new TypeOrmSkuCommandRepository(client);
-    const query = new TypeOrmSkuQueryRepository(TypeOrmClientFactory.createClient(connecEnv));
+    const query = new TypeOrmSkuQueryRepository(client);
     try {
         const skuId = Uuid.random().value;
         const avlb = new AvailabilityRegionDTO(
