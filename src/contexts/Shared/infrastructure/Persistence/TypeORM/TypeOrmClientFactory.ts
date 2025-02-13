@@ -14,10 +14,10 @@ import { MediaFileSchema } from '../../../../Catalog/MediaFile/infrastructure/Pe
 import { LabelSchema } from '../../../../Catalog/Label/infrastructure/Persistence/TypeORM/LabelSchema.entity';
 
 export class TypeOrmClientFactory {
-    static async createClient(config: TypeOrmConfig): Promise<DataSource> {
+    static async createClient(context: string, config: TypeOrmConfig): Promise<DataSource> {
         try {
             const connection = new DataSource({
-                name: 'E-Commerce',
+                name: context,
                 type: 'mssql',
                 host: config.host,
                 port: config.port,
@@ -41,7 +41,6 @@ export class TypeOrmClientFactory {
                     MediaFileSchema,
                     CategorySchema,
                     LabelSchema,
-                    
                 ],
                 synchronize: true,
             });

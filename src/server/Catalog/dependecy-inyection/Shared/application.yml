@@ -1,0 +1,11 @@
+services:
+  Catalog.Shared.TypeormConfig:
+    factory:
+      class: ../../../../contexts/Catalog/Shared/infrastructure/Persistence/TypeORM/TypeormConfigFactory
+      method: 'createConfig'
+
+  Catalog.Shared.ConnectionManager:
+    factory:
+      class: ../../../../contexts/Shared/infrastructure/Persistence/TypeORM/TypeOrmClientFactory
+      method: 'createClient'
+    arguments: ['E-Commerce-Catalog', '@Catalog.Shared.TypeormConfig']

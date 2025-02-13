@@ -2,6 +2,7 @@ import { AvailabilityRegionDTO } from '../src/contexts/Catalog/AvailabilityRegio
 import { TypeORMCategoryQueryRepository } from '../src/contexts/Catalog/Category/infrastructure/Persistence/TypeORM/TypeORMCategoryQueryRepository';
 import { PriceDTO } from '../src/contexts/Catalog/Price/domain/PriceDTO';
 import { PromotionalSettingsDTO } from '../src/contexts/Catalog/PromotionalSettings/domain/PromotionalSettingsDTO';
+import { TypeormConfigFactory } from '../src/contexts/Catalog/Shared/infrastructure/Persistence/TypeORM/TypeormConfigFactory';
 import { Sku } from '../src/contexts/Catalog/SKU/domain/Sku';
 import { SkuDTO } from '../src/contexts/Catalog/SKU/domain/SkuDTO';
 import { SkuId } from '../src/contexts/Catalog/SKU/domain/SkuId';
@@ -10,22 +11,18 @@ import { SkuAttributeDTO } from '../src/contexts/Catalog/SKUAttribute/domain/Sku
 import { StockDTO } from '../src/contexts/Catalog/Stock/domain/StockDTO';
 import { Uuid } from '../src/contexts/Shared/domain/value-objects/Uuid';
 import { TypeOrmClientFactory } from '../src/contexts/Shared/infrastructure/Persistence/TypeORM/TypeOrmClientFactory';
-import { EnviromentConfig } from '../src/server/Catalog/EnviromentConfig';
+import { containerPromise } from '../src/server/Catalog/dependecy-inyection';
 
 (async () => {
-    const env = new EnviromentConfig();
-    const connecEnv = {
-        username: env.DB_USER,
-        host: env.DB_HOST,
-        password: env.DB_PASSWORD,
-        database: env.DB_DATABASE,
-        port: parseInt(env.DB_PORT)
-    }
-    const client = TypeOrmClientFactory.createClient(connecEnv);
+    // const connecEnv = TypeormConfigFactory.crateConfig();
+    // const client = TypeOrmClientFactory.createClient(connecEnv);
+    // const query = new TypeORMCategoryQueryRepository(client);
+
     // const repo = new TypeOrmSkuCommandRepository(client);
     // const query = new TypeOrmSkuQueryRepository(client);
-    const query = new TypeORMCategoryQueryRepository(client)
     try {
+        const container = await containerPromise;
+        const ent = container.get("Catalog.Shared.ConnectionManager")
         // const skuId = Uuid.random().value;
         // const avlb = new AvailabilityRegionDTO(
         //     "40228f26-48fc-4dfa-998b-8d8a591e4ff3",
@@ -61,11 +58,11 @@ import { EnviromentConfig } from '../src/server/Catalog/EnviromentConfig';
         // const skuObj = Sku.fromPrimitives(sku)
         // await repo.save(skuObj);
         // const response = await query.find(new SkuId('4ec62d91-ae51-41b1-832f-3de975aa174e'));
-        const rsponse = await query.searchAll();
-        console.log(rsponse);
+        // const rsponse = await query.searchAll();
+        console.log(ent);
     } catch (err) {
         console.log(err)
     } finally {
-        (await client).destroy();
+        // (await client).destroy();
     }
 })()
