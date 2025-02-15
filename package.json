@@ -4,19 +4,26 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "entities-test": "ts-node test/entities.test.ts"
+    "entities-test": "ts-node test/entities.test.ts",
+    "dev": "concurrently \"tsc -w\" \"nodemon build/src/server/index.js\""
   },
   "author": "David Esteban Morales",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
     "@types/mssql": "^9.1.6",
     "@types/uuid-validate": "^0.0.3",
+    "concurrently": "^9.1.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9",
     "tslint": "^5.12.1",
-    "typescript": "^3.3.3"
+    "typescript": "^5.7.3"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.2",
     "mssql": "^10.0.4",
     "node-dependency-injection": "^3.2.2",
