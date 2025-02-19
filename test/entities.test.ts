@@ -22,7 +22,7 @@ import { containerPromise } from '../src/server/Catalog/dependecy-inyection';
     // const query = new TypeOrmSkuQueryRepository(client);
     try {
         const container = await containerPromise;
-        const ent = container.get("Catalog.Shared.ConnectionManager")
+        const ent = container.get("Catalog.AvailabilityRegion.domain.SearchAllAvailabilityRegionQueryHandler")
         // const skuId = Uuid.random().value;
         // const avlb = new AvailabilityRegionDTO(
         //     "40228f26-48fc-4dfa-998b-8d8a591e4ff3",

@@ -16,6 +16,6 @@ export class TypeORMAvailabilityRegionQueryRepository
     async searchAll(): Promise<AvailabilityRegion[]> {
         const repository = await this.repository();
         const response = await repository.find();
-        return response.map(entry => AvailabilityRegionMapper.convertFromPersistenceObject(entry));
+        return response.map(AvailabilityRegionMapper.convertFromPersistenceObject);
     }
 }

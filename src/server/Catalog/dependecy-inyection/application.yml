@@ -1,3 +1,4 @@
 imports:
   - { resource: ./Shared/application.yml }
+  - { resource: ./AvailabilityRegion/application.yml }
 

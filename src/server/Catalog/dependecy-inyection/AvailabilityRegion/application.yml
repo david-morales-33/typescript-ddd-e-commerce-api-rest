@@ -1,0 +1,10 @@
+services:
+  Catalog.AvailabilityRegion.domain.AvailabilityRegionQueryRepository:
+    class: ../../../../contexts/Catalog/AvailabilityRegion/infrastructure/Persistence/TypeORM/TypeORMAvailabilityRegionQueryRepository
+    arguments: ["@Catalog.Shared.ConnectionManager"]
+  Catalog.AvailabilityRegion.domain.AvailabilityRegionSearcher:
+    class: ../../../../contexts/Catalog/AvailabilityRegion/application/SearchAll/AvailabilityRegionSearcher
+    arguments: ["@Catalog.AvailabilityRegion.domain.AvailabilityRegionQueryRepository"]
+  Catalog.AvailabilityRegion.domain.SearchAllAvailabilityRegionQueryHandler:
+    class: ../../../../contexts/Catalog/AvailabilityRegion/application/SearchAll/SearchAllAvailabilityRegionQueryHandler
+    arguments: ["@Catalog.AvailabilityRegion.domain.AvailabilityRegionSearcher"]
