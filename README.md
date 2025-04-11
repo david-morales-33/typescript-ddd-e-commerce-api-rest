@@ -44,23 +44,32 @@
 │   │   ├── Administrative/
 │   │   ├── Authentication/
 │   │   ├── Catalog/
-│   │   |   ├── product/
+│   │   |   ├── Product/
 │   │   |   ├── SKU/
-│   │   |   └── order/
-│   ├── contexts/                     # Módulos del dominio (productos, usuarios, pedidos, etc.)
-│   │   ├── Catalog/
-│   │   |   ├── product/
+│   │   |   └── Order/
+│   ├── contexts/                     # Bounded contexts
+│   │   ├── Catalog/                  # Entidades para el contexto (Catálogo)
+│   │   |   ├── Product/              
 |   |   |   |   ├── application
 |   |   |   |   ├── domain
 |   |   |   |   ├── infrastructure
 │   │   |   ├── SKU/
-│   │   |   └── order/
+│   │   |   └── Order/
 ├── test/                            # Pruebas unitarias y de integración
+│   ├── contexts/                    
+│   │   ├── Catalog/
+│   │   |   ├── Product/
+|   |   |   |   ├── __mocks__
+|   |   |   |   ├── application
+|   |   |   |   ├── domain
+|   |   |   |   ├── infrastructure
+│   │   |   ├── SKU/
+│   │   |   └── Order/
 ├── .env                             # Variables de entorno
 ├── docker-compose.yml               # Configuración de Docker
 ├── package.json                     # Dependencias y scripts de npm
 ├── tsconfig.json                    # Configuración de TypeScript
-└── README.md                        # Este archivo
+└── README.md                        
 ```
 
 ---
