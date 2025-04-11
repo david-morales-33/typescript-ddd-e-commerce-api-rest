@@ -1,4 +1,4 @@
-# 🛒 TypeScript DDD – E-Commerce API REST
+# 🛒 E-Commerce API REST
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18.x-green.svg)](https://nodejs.org/)
