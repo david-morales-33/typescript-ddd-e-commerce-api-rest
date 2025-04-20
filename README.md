@@ -48,7 +48,7 @@
 │   │   |   ├── SKU/
 │   │   |   └── Order/
 │   ├── contexts/                     # Bounded contexts
-│   │   ├── Catalog/                  # Entidades para el contexto (Catálogo)
+│   │   ├── Catalog/                  # Entidades contexto Catálogo
 │   │   |   ├── Product/              
 |   |   |   |   ├── application
 |   |   |   |   ├── domain
