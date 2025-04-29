@@ -170,7 +170,6 @@ Este proyecto está licenciado bajo la Licencia MIT. Ver el archivo [LICENSE](LI
 4. Sube tus cambios a tu fork (`git push origin feature/nueva-funcionalidad`)
 5. Abre un Pull Request
 
----
 
 ## 👨‍💻 Autor
 
