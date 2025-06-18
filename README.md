@@ -18,7 +18,6 @@
 - [🔧 Configuración](#-configuración)
 - [▶️ Uso](#️-uso)
 - [🧪 Pruebas](#-pruebas)
-- [📄 Licencia](#-licencia)
 - [🤝 Contribuciones](#-contribuciones)
 - [👨‍💻 Autor](#-autor)
 
@@ -151,14 +150,6 @@ Ejecutar pruebas en modo watch:
 ```bash
 npm run test:watch
 ```
-
----
-
-## 📄 Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
-
----
 
 ## 🤝 Contribuciones
 
